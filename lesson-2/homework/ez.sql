@@ -32,10 +32,10 @@ ALTER COLUMN Salary FLOAT;
   );
 10. TRUNCATE TABLE Employees;
 -- Intermediate Level
-11. SELECT 1 AS DepartmentID, 'HR' AS DepartmentName
-INTO TempDepartments
+11. INSERT INTO Departments (DepartmentID, DepartmentName)
+SELECT 1, 'HR'
 UNION ALL
-SELECT 2, 'IT'
+SELECT 2, 'IT' 
 UNION ALL
 SELECT 3, 'FINANCE'
 UNION ALL
@@ -66,15 +66,15 @@ ADD CONSTRAINT CHK_Price_Positive CHECK (Price > 0 );
 19. ALTER TABLE Products
 ADD StockQuantity INT DEFAULT 50;
 20. EXEC SP_RENAME 'PRODUCTS.Category', 'ProductCategory', 'Column';
-21. INSERT INTO Prdoucts (ProductID, ProductName, ProductCategory, Price, Description)
-(1, 'LAPTOP', 'Electronics', 1500, 'Gaming Laptop'),
-(2, 'Phone', 'Electronics', 800, 'Smartphone S80'),
-(3, 'Table', 'Furniture', 100, 'Smartphone S80'),
-(4, 'Chair', 'Furniture', 50, 'Smartphone S80'),
-(5, 'Headphones', 'Electronics', 120, 'JBL');
+21. INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, Description)
+(1, 'LAPTOP', 'Electronics', 1500, 'Gaming Laptop', 'NEW'),
+(2, 'Phone', 'Electronics', 800, 'Smartphone S80', 'NEW'),
+(3, 'Table', 'Furniture', 100, 'Smartphone S80', 'NEW'),
+(4, 'Chair', 'Furniture', 50, 'Smartphone S80', 'NEW'),
+(5, 'Headphones', 'Electronics', 120, 'JBL', 'NEW');
 22. SELECT * INTO Products_Backup
 FROM Products;
-23. Exec Sp_rename 'Products', 'Inventory');
+23. Exec Sp_rename 'Products', 'Inventory';
 24. ALTER TABLE Inventory
 Alter column price FLOAT;
 25. ALTER TABLE Inventory
